@@ -122,16 +122,18 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 // Consuming Promises
 
 // const getCountryData = function (country) {
-//   fetch(`https://restcountries.com/v2/name/${country}`).then(function (
-//     response){
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(function (response) {
 //       console.log(response);
 //       return response.json();
-//  })
-//  .then( function(data){
-//   console.log(data);
-//   renderCountry(data[0]);
-//  });
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       renderCountry(data[0]);
+//     });
 // };
+
+// getCountryData('macedonia');
 
 ///////////////////////////////////////
 // Consuming Promises
@@ -140,7 +142,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 // Throwing Errors Manually
 
 // const getCountryData = function (country) {
-//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//   fetch(`https://restcountries/v2/name/${country}`)
 //     .then(function (response) {
 //       console.log(response);
 //       return response.json();
@@ -153,7 +155,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 
 // const getCountryData = function (country) {
 //   // Country 1
-//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//   fetch(`https://restcountries/v2/name/${country}`)
 //     .then(response => {
 //       console.log(response);
 
@@ -170,7 +172,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 //       if (!neighbour) return;
 
 //       // Country 2
-//       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//       return fetch(`https://restcountries/v2/alpha/${neighbour}`);
 //     })
 //     .then(response => {
 //       if (!response.ok)
@@ -191,7 +193,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 // const getCountryData = function (country) {
 //   // Country 1
 //   getJSON(
-//     `https://restcountries/rest/v2/name/${country}`,
+//     `https://restcountries.com/v2/name/${country}`,
 //     'Country not found'
 //   )
 //     .then(data => {
@@ -202,7 +204,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 
 //       // Country 2
 //       return getJSON(
-//         `https://restcountries/rest/v2/alpha/${neighbour}`,
+//         `https://restcountries/v2/alpha/${neighbour}`,
 //         'Country not found'
 //       );
 //     })
@@ -279,19 +281,15 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 
 /*
 ------------------------Exercise -----------------------------
-
 PART 1
 1. Create a function 'createImage' which receives imgPath as an input. This function returns a promise which creates a new image (use document.createElement('img')) and sets the .src attribute to the provided image path. When the image is done loading, append it to the DOM element with the 'images' class, and resolve the promise. The fulfilled value should be the image element itself. In case there is an error loading the image ('error' event), reject the promise.
-
 PART 2
 2. Comsume the promise using .then and also add an error handler;
 3. After the image has loaded, pause execution for 2 seconds using the wait function;
 4. After the 2 seconds have passed, hide the current image (set display to 'none'), and load a second image
 5. After the second image has loaded, pause execution for 2 seconds again;
 6. After the 2 seconds have passed, hide the current image.
-
 TEST DATA: Images in the img folder. Test the error handler by passing a wrong image path.
-
 */
 
 // const wait = function (seconds) {
@@ -365,7 +363,7 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 
 //     // Country data
 //     const res = await fetch(
-//       `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
+//       `https://restcountries.com/v2/name/${data.country}`
 //     );
 
 //     if (!res.ok) throw new Error('Problem getting country');
@@ -406,7 +404,7 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 
 //     // Country data
 //     const res = await fetch(
-//       `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
+//       `https://restcountries.com/v2/name/${dataGeo.country}`
 //     );
 //     if (!res.ok) throw new Error('Problem getting country');
 //     const data = await res.json();
@@ -419,8 +417,6 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 //     throw err;
 //   }
 // };
-
-// console.log('1: Will get the location');
 
 // const city = whereAmI();
 // console.log(city);
@@ -447,21 +443,21 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 
 // const get3Countries = async function (c1, c2, c3) {
 //   try {
-    // const [data1] = await getJSON(
-    //   `https://restcountries.eu/rest/v2/name/${c1}`
-    // );
-    // const [data2] = await getJSON(
-    //   `https://restcountries.eu/rest/v2/name/${c2}`
-    // );
-    // const [data3] = await getJSON(
-    //   `https://restcountries.eu/rest/v2/name/${c3}`
-    // );
-    // console.log([data1.capital, data2.capital, data3.capital]);
+//     const [data1] = await getJSON(
+//       `https://restcountries.com/v2/name/${c1}`
+//     );
+//     const [data2] = await getJSON(
+//       `https://restcountries.com/v2/name/${c2}`
+//     );
+//     const [data3] = await getJSON(
+//       `https://restcountries.com/v2/name/${c3}`
+//     );
+//     console.log([data1.capital, data2.capital, data3.capital]);
 
 //     const data = await Promise.all([
-//       getJSON(`https://restcountries.com/v3.1/name/${c1}`),
-//       getJSON(`https://restcountries.com/v3.1/name/${c2}`),
-//       getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+//       getJSON(`https://restcountries.com/v2/name/${c1}`),
+//       getJSON(`https://restcountries.com/v2/name/${c2}`),
+//       getJSON(`https://restcountries.com/v2/name/${c3}`),
 //     ]);
 //     console.log(data.map(d => d[0].capital));
 //   } catch (err) {
@@ -469,5 +465,3 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 //   }
 // };
 // get3Countries('argentina', 'italy', 'macedonia');
-
-
